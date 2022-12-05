@@ -10,13 +10,6 @@ fn main() {
  
 }
 
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
-where P: AsRef<Path>, {
-    let file = File::open(filename)?;
-    Ok(io::BufReader::new(file).lines())
-}
-
-
 fn part_one() {
 
     let mut total_priority = 0u32;
@@ -93,6 +86,13 @@ fn get_prio(item: char) -> u32 {
         panic!("Unknown item: {}", item);
     }
 
+}
+
+
+fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
+where P: AsRef<Path>, {
+    let file = File::open(filename)?;
+    Ok(io::BufReader::new(file).lines())
 }
 
 
